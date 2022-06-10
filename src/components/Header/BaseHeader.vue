@@ -10,7 +10,7 @@
 <script>
 
 import axios from 'axios';
-import search from "../Shared/searchBar";
+import search from "../Shared/shared";
 
 export default {
     name: 'BaseHeader',
@@ -34,6 +34,19 @@ export default {
                 search.films = response.data.results;
             }).catch((error) => {
                 console.log(error);
+            }),
+            axios.get('https://api.themoviedb.org/3/search/tv',
+                {
+                    params: {
+                        api_key: '112b28775dc802b91f74915e05422005',
+                        query: this.searchBar,
+                        language: 'it-IT'
+                    }
+                }
+                ).then((response) => {
+                    search.tvSeries = response.data.results;
+                }).catch((error) => {
+                    console.log(error);
             })
         }
     }
