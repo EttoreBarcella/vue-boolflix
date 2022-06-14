@@ -1,13 +1,13 @@
 <template>
   <main>
-    <h4>Films</h4>
+    <h2>Films</h2>
     <ul class="film-list">
       <li v-for="film in search.films" :key="film.id">
         <BaseCard :info="film"/>
       </li>
     </ul>
 
-    <h4>Tv Series</h4>
+    <h2>Tv Series</h2>
     <ul class="tv-list">
       <li v-for="serie in search.tvSeries" :key="serie.id">
         <BaseCard :info="serie"/>
@@ -35,9 +35,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 main{
-    .film-list, .tv-list{
+  background-color: var(--primary-color);
+  h2{
+    color: var(--tertiary-color);
+  }
+  .film-list, .tv-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+      li{
         list-style: none;
-    }
+        color: var(--tertiary-color);
+        font-size: .75rem;
+      }
+  }
 }
 </style>
