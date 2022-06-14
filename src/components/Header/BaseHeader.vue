@@ -1,5 +1,6 @@
 <template>
   <header>
+    <div class="logo">boolflix</div>
     <form @submit.prevent="submit()">                     
         <input class="" type="text" placeholder="Inserisci il nome del film" v-model="searchBar">
         <button type="submit">Cerca</button>                 
@@ -54,5 +55,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color);
+    padding: .625rem;
+    .logo{
+        color: var(--secondary-color);
+        font-size: 2rem;
+        text-transform: uppercase;
+    }
+}
 </style>
